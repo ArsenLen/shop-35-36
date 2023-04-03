@@ -8,7 +8,7 @@ import styles from './cartpage.module.css'
 const CartPage = () => {
     return (
       <>
-        <Breadcrumbs  />
+        <Breadcrumbs title="Cart" />
         <section className={styles.cart}>
           <div className={styles.wrapper}>
             <div className={styles.products}>

@@ -1,22 +1,39 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './product.module.css'
 
-const Product = () => {
-    const gridView = true
+const Product = (props) => {
     return (
-        <div className={gridView ? styles.card : styles["card-list"]}>
-            <img src="" alt="" className={styles.img} />
+        <div className={props.gridView ? styles.card : styles["card-list"]}>
+            <img src={props.img} alt="" className={styles.img} />
             <div className={styles.info}>
-                <a href="/" className={styles.name}>
-                Test Title
-                </a>
+                <Link to={`/catalog/${props.id}`} className={styles.name}>
+                    {props.title}
+                </Link>
                 <h4 className={styles.price}>
-                    50000 KGS
+                    {props.price}
                 </h4>
-                <p>{new Date().toString()}</p>
+                <p>{new Date(props.date).toString()}</p>
             </div>
         </div>
     );
 };
 
 export default Product;
+
+// /catalog/34567323424idafert
+// axios.get('/product/id')
+
+/*
+    <Link params={{name: "1"}} />
+    {
+        pathname: "",
+        state: {
+            params : {
+                name: "1"
+            }
+        }
+    }
+
+    className={`view-${myView}`}
+*/

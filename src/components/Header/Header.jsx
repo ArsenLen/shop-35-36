@@ -1,15 +1,16 @@
 import React from 'react';
 import styles from './header.module.css'
 import Modal from '../Modal/Modal';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
         <>
         <header>
-            <div className={styles.wrapper} >
+            <div className={styles.wrapper}>
                 <nav className={styles.nav}>
-                    <a href="/" className={styles.link}>Home</a>
-                    <a href="/" className={styles.link}>Shop</a>
+                    <NavLink to="/" className={styles.link}>Home</NavLink>
+                    <NavLink to="/catalog" className={styles.link}>Shop</NavLink>
                     <a href="/" className={styles.link}>About</a>
                     <a href="/" className={styles.link}>Contact</a>
                 </nav>

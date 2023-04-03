@@ -27,3 +27,33 @@
 .card-list .img {
     width: 20%;
 }
+/* .card-4 {
+    width: 25%;
+}
+.card-2 {
+    width: 50%;
+}
+.card-list {
+    width: 100%;
+} */
+
+/* @media (max-width: 992px) {
+    .card {
+        width: calc(50% - 30px);
+    }
+    (N/1440*100) = 
+    fn(N) {
+        N/1440*100
+    }
+    fn(420)
+
+    scss 
+    module + MUI
+    styled + MUI/AntDesign
+} */
+/* .view-1 {
+    width: 100%;
+} 
+    .view-2 {
+        width: 50%
+*/
