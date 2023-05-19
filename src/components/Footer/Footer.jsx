@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./footer.module.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Footer = () => {
   return (
@@ -43,6 +45,7 @@ const Footer = () => {
       <p className={styles.copyright}>
       2022 Meubel House. All rights reverved
       </p> 
+      <ToastContainer autoClose={500} theme="light" hideProgressBar={true} />
     </footer>
   );
 };

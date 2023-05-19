@@ -12,7 +12,7 @@ const CatalogPage = () => {
   const [gridView, setGridView] = useState(true)
   const [sort, setSort] = useState('price')
   const [productsOffset, setProductsOffset] = useState(0); // число, начиная с которого нужно показывать товар
-  const productsPerPage = 5 // количество товаров на странице
+  const productsPerPage = 4 // количество товаров на странице
   const [forcePage, setForcePage] = useState(0)
 
   const endOffset = productsOffset + productsPerPage; // число, до которого нам нужно показывать товары
@@ -21,7 +21,7 @@ const CatalogPage = () => {
   const pageCount = Math.ceil(products.length / productsPerPage); // количество страниц пагинации
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * productsPerPage) % products.length;
+    const newOffset = (event.selected * productsPerPage) % products.length; /* 12/16 = 0.75. 12 % 16 = 12 */
     console.log(
       `User requested page number ${event.selected}, which is offset ${newOffset}`
     );
@@ -99,4 +99,10 @@ export default CatalogPage;
       в одной строке.
 
   Добавить сортировку по цене от большей к меньшей цене 
+
+
+
+  1. Создать состояние для количества элементов - productsPerPage
+  2. Передавать setter в компонент Filter
+  3. Менять состояние productsPerPage используя input, select
 */

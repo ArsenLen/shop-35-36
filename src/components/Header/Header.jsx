@@ -2,8 +2,10 @@ import React from 'react';
 import styles from './header.module.css'
 import Modal from '../Modal/Modal';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+    const currentUser = useSelector(state => state.user.currentUser)
     return (
         <>
         <header>
@@ -15,9 +17,11 @@ const Header = () => {
                     <a href="/" className={styles.link}>Contact</a>
                 </nav>
                 <div className={styles.icons}>
-                    <a href="/" className={styles.icon}>
-                        <img src="/images/profile-icon.png" alt="" className={styles.icon} />
-                    </a>
+                    { !currentUser && (
+                        <NavLink to="/account" className={styles.icon}>
+                            <img src="/images/profile-icon.png" alt="" className={styles.icon} />
+                        </NavLink>
+                     )}
                     <p className={styles.icon}>
                         <img src="/images/search-icon.png" alt="" className={styles.icon} />
                     </p>
@@ -29,6 +33,7 @@ const Header = () => {
                         <img src="/images/basket-icon.png " alt="" className={styles.icon} />
                     </p>
                 </div>
+                { currentUser && <div> { currentUser.username } </div> }
             </div>
         </header>
         </>
