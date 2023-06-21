@@ -1,15 +1,20 @@
 import React from 'react';
 import styles from './cartproduct.module.css';
+import { useDispatch } from 'react-redux';
+import { deleteFromCart } from '../../redux/cartSlice';
 
-const CartProduct = () => {
+const CartProduct = ({product}) => {
+    const dispatch = useDispatch()
     return (
         <div className={styles.wrapper}>
-            <img src="" alt="" className={styles.img} />
-            <p className={styles.name}>test Title</p>
-            <p className={styles.price}>50000</p>
-            <p className={styles.quantity}>1</p>
-            <p className={styles.subtotal}>1</p>
-            <button><img src="images/delete-icon.png" alt="" /></button>
+            <img src={product.img} alt="" className={styles.img} />
+            <p className={styles.name}>{product.title}</p>
+            <p className={styles.price}>{product.price}</p>
+            <p className={styles.quantity}>{product.quantity}</p>
+            <p className={styles.subtotal}>{product.quantity * product.price}</p>
+            <button onClick={e => dispatch(deleteFromCart(product._id))}>
+                <img src="images/delete-icon.png" alt="" />
+            </button>
         </div>
     );
 };

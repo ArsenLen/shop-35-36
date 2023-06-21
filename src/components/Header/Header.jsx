@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './header.module.css'
 import Modal from '../Modal/Modal';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Header = () => {
     const currentUser = useSelector(state => state.user.currentUser)
+    const quantity = useSelector(state => state.cart.quantity) // количество уникальных товаров из редакс стейт
     return (
         <>
         <header>
@@ -28,12 +29,13 @@ const Header = () => {
                     <p className={styles.icon}>
                         <img src="/images/favorite-icon.png" alt="" className={styles.icon} />
                     </p>
-                    <p className={styles.icon}>
-                        <span className={styles.quantity}>1</span>
+                    <Link to="/cart" className={styles.icon}>
+                        { quantity > 0 && <span className={styles.quantity}>{quantity}</span> }
                         <img src="/images/basket-icon.png " alt="" className={styles.icon} />
-                    </p>
+                    </Link>
                 </div>
                 { currentUser && <div> { currentUser.username } </div> }
+                <Modal />
             </div>
         </header>
         </>
