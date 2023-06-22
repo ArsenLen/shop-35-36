@@ -3,6 +3,7 @@ import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import CartProduct from '../../components/CartProduct/CartProduct';
 import styles from './cartpage.module.css'
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 //4242 4242 4242 4242
 
@@ -39,7 +40,7 @@ const CartPage = () => {
               <p className={styles.total}>
                 Total <span>{sum}</span>
               </p>
-              <a href="/checkout" className={styles.checkout}>Check Out</a>
+              <Link to="/checkout" className={styles.checkout}>Check Out</Link>
             </div>
           </div>
         </section>

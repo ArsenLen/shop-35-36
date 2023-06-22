@@ -8,6 +8,7 @@ import AccountPage from './pages/AccountPage/AccountPage';
 import { useSelector } from 'react-redux';
 import SingleProductPage from './pages/SingleProductPage/SingleProductPage';
 import CartPage from './pages/CartPage/CartPage';
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 
 function App() {
   const currentUser = useSelector(state => state.user.currentUser)
@@ -19,6 +20,7 @@ function App() {
          <Route path="/catalog" element={<CatalogPage />} />
          <Route path="/catalog/:id" element={<SingleProductPage />} />
          <Route path="/cart" element={<CartPage />} />
+         <Route path="/checkout" element={<CheckoutPage />} />
         { !currentUser &&  <Route path="/account" element={<AccountPage />} /> }
       </Routes>
       <Footer />

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./modal.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal, deleteFromCart } from "../../redux/cartSlice";
+import { Link } from "react-router-dom";
 
 const Modal = () => {
   const isOpen = useSelector(state => state.cart.isOpen) // состояние модального окна из редакс стейт
@@ -41,12 +42,12 @@ const Modal = () => {
               <p className={styles.subtotal}>Subtotal</p> { sum }
             </div>
             <div className={styles.line}></div>
-            <a href="/cart" className={styles.link}>
+            <Link to="/cart" onClick={e => dispatch(closeModal())} className={styles.link}>
               View Cart
-            </a>
-            <a href="/checkout" className={styles.link}>
+            </Link>
+            <Link to="/checkout" onClick={e => dispatch(closeModal())}  className={styles.link}>
               Checkout
-            </a>
+            </Link>
           </div>
         </div>
       </div>
